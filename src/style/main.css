@@ -1,0 +1,28 @@
+:root {
+  --font-family: "Roboto", sans-serif;
+}
+:root {
+  --black: rgb(21, 21, 21);
+  --ye: #ffdd00;
+  --green: #275e31;
+  --gray: #5e5e5e;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+}
+body,
+html,
+#root {
+  height: 100%;
+  min-height: 100%;
+}
+.container {
+  position: relative;
+  padding: 0 20px;
+  margin: 0 auto;
+  max-width: 1340px;
+}
