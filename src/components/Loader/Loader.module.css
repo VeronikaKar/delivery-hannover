@@ -1,0 +1,24 @@
+.loader {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 3px dashed white;
+  animation: rotate 5s infinite linear;
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px;
+}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg) scale(0.7);
+  }
+  50% {
+    transform: rotate(360deg) scale(1.6);
+  }
+  to {
+    transform: rotate(0deg) scale(0.8);
+  }
+}
