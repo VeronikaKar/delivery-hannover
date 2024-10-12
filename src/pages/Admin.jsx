@@ -4,7 +4,7 @@ import logout from "../images/logout.svg";
 import Table from "react-bootstrap/Table";
 import Calc from "../components/Calc";
 import { useNavigate, NavLink } from "react-router-dom";
-import { Context } from "../index";
+import { Context } from "../main";
 import { MAIN_ROUTE } from "../utils/const";
 import { PopupAdmin } from "../components/PopupAdmin";
 import { getAllOrders, changeOrder, deleteOrder } from "../http/orderAPI";
