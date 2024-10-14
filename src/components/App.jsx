@@ -5,6 +5,7 @@ import { observer } from "mobx-react-lite";
 import { Context } from "./index";
 import "./style/main.css";
 import "./style/reset.css";
+import Header from "./Heder";
 const App = observer(() => {
   const { user } = useContext(Context);
   const [loading, setLoading] = useState(true);
@@ -20,7 +21,9 @@ const App = observer(() => {
   }, []);
   return (
     <BrowserRouter>
-      <div id="top" className="wrapper"></div>
+      <div id="top" className="wrapper">
+        <Header />
+      </div>
     </BrowserRouter>
   );
 });
