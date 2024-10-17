@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import Loader from "./Loader/Loader";
-import { Context } from "../main";
+import Loader from "../Loader/Loader";
+import { Context } from "../../main";
 import { useNavigate } from "react-router-dom";
 import { toJS } from "mobx";
 

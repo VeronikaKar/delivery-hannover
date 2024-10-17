@@ -6,7 +6,7 @@ import {
   LOGIN_ROUTE,
   CABINET_ROUTE,
   ADMIN_ROUTE,
-} from "../utils/const";
+} from "../../utils/const";
 import { Link } from "react-router-dom";
 import { observer } from "mobx-react-lite";
 import { Context } from "../index";

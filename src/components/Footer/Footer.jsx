@@ -4,7 +4,7 @@ import logo from "../images/logo.jpeg";
 import what from "../images/what.svg";
 import mail from "../images/mail.svg";
 import { observer } from "mobx-react-lite";
-import { AUTH_ROUTE, MAIN_ROUTE } from "../utils/const";
+import { AUTH_ROUTE, MAIN_ROUTE } from "../../utils/const";
 
 export const Footer = () => {
   const whatsapp = () => {

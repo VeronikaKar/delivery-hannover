@@ -5,7 +5,7 @@ import { observer } from "mobx-react-lite";
 import { Context } from "./index";
 import "./style/main.css";
 import "./style/reset.css";
-import Header from "./Heder";
+import Header from "./Header/Header";
 const App = observer(() => {
   const { user } = useContext(Context);
   const [loading, setLoading] = useState(true);
