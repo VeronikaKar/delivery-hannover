@@ -52,7 +52,9 @@ html,
   -moz-box-shadow: 0px 0px 20px 15px rgba(255, 255, 255, 1);
   box-shadow: 0px 0px 20px 15px rgba(255, 255, 255, 1);
   z-index: 100;
+  
   position: sticky;
+
   top: 0;
   background-color: white;
 }
@@ -430,8 +432,7 @@ select::-ms-expand {
   padding: 90px 0 100px 0;
   background: var(--bg);
 }
-.container-my {
-}
+
 .feedback__inner {
   color: var(--white);
 }
@@ -466,8 +467,7 @@ select::-ms-expand {
   display: flex;
   gap: 12px;
 }
-.feedback__card-avatar {
-}
+
 .feedback__card-info {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -638,8 +638,7 @@ select::-ms-expand {
 #s2:hover {
   background-image: url("../images/yellow.svg");
 }
-.feedback__card-star {
-}
+
 .small-stars > * {
   font-size: 14px !important;
 }
@@ -809,8 +808,7 @@ select::-ms-expand {
     ),
     url("../images/back2.jpg");
 }
-.container {
-}
+
 .about__inner {
   margin-bottom: 90px;
   min-height: 100vh;
@@ -872,10 +870,7 @@ select::-ms-expand {
   background-color: white;
   padding: 20px;
 }
-.about__title {
-}
-.about__text {
-}
+
 .login-btn {
   flex-wrap: nowrap;
   display: flex;
@@ -1013,8 +1008,6 @@ td {
   height: 50px;
 }
 
-tbody {
-}
 .order-tab {
   margin-top: 20px;
   align-self: baseline;
