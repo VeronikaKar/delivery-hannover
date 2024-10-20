@@ -1,28 +1,44 @@
 import React from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 
-export const Card = () => {
+// Ensure the marker icon is properly set up
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
+  iconUrl: require("leaflet/dist/images/marker-icon.png"),
+  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
+});
+
+export const Card = ({ city = "Hannover", lat = 52.3759, lon = 9.732 }) => {
   return (
-    <div style={{ position: "relative", overflow: "hidden" }}>
-      <a
-        href="https://www.google.com/maps/place/Hannover/"
+    <div style={{ height: "400px", width: "100%", position: "relative" }}>
+      <h3
         style={{
-          color: "#eee",
-          fontSize: "12px",
           position: "absolute",
-          top: "0px",
+          top: "10px",
+          left: "10px",
+          color: "#fff",
+          zIndex: 10,
         }}
-        aria-label="Link to Hannover on Google Maps"
       >
-        Hannover
-      </a>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96335.14451895294!2d9.652731809764716!3d52.37447790000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b052780913e73b%3A0xcba5f14fb95c94e9!2sHannover!5e0!3m2!1sen!2sde!4v1697170579865!5m2!1sen!2sde"
-        width="100%"
-        height="800"
-        frameBorder={1}
-        allowFullScreen
-        style={{ position: "relative" }}
-      ></iframe>
+        {city}
+      </h3>
+      <MapContainer
+        center={[lat, lon]}
+        zoom={13}
+        scrollWheelZoom={false}
+        style={{ height: "100%", width: "100%" }}
+      >
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        />
+        <Marker position={[lat, lon]}>
+          <Popup>{city}</Popup>
+        </Marker>
+      </MapContainer>
     </div>
   );
 };

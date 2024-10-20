@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React App</title>
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parisienne&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="../main.css" />
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/5ea815c1d0.js"></script>
+
+    <!-- Buy Me A Coffee Button -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+      data-name="bmc-button"
+      data-slug="gitlabBilal"
+      data-color="#FFDD00"
+      data-emoji=""
+      data-font="Cookie"
+      data-text="Buy me a coffee"
+      data-outline-color="#000000"
+      data-font-color="#000000"
+      data-coffee-color="#ffffff"
+    ></script>
+
+    <!-- Yandex Maps API -->
+    <script
+      src="https://api-maps.yandex.ru/2.1/?apikey=db0526f0-22f9-471c-9e1b-65f064b8682c&lang=ru_RU"
+      type="text/javascript"
+    ></script>
+
+    <!-- Script for URL handling -->
+    <script type="text/javascript">
+      (function (l) {
+        if (l.search[1] === "/") {
+          const decoded = l.search
+            .slice(1)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      })(window.location);
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>

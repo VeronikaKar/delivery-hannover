@@ -2,15 +2,16 @@ import { useContext, useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
 import { Context } from "../../main";
 import { useNavigate } from "react-router-dom";
-import { toJS } from "mobx";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 
 export const Calc = ({ isModal, setOrders, setPopupAdmin }) => {
   const { user } = useContext(Context);
   const history = useNavigate();
-  const [myMap, setMyMap] = useState({});
   const [cities, setCities] = useState([]);
   const [distance, setDistance] = useState("");
-  const [calc, setCalc] = useState(null);
+  const [calc, setCalc] = useState(false);
   const [load, setLoad] = useState(false);
   const [day, setDay] = useState(1);
   const [price, setPrice] = useState("500");
@@ -20,6 +21,38 @@ export const Calc = ({ isModal, setOrders, setPopupAdmin }) => {
     weight: "",
     size: "",
   });
+
+  const cityData = {
+    Berlin: { lat: 52.52, lon: 13.405 },
+    Munich: { lat: 48.1351, lon: 11.582 },
+    Hamburg: { lat: 53.5511, lon: 9.9937 },
+    Frankfurt: { lat: 50.1109, lon: 8.6821 },
+    Hannover: { lat: 52.3759, lon: 9.732 },
+  };
+
+  const haversineDistance = (city1, city2) => {
+    const toRadians = (degrees) => (degrees * Math.PI) / 180;
+
+    const lat1 = cityData[city1].lat;
+    const lon1 = cityData[city1].lon;
+    const lat2 = cityData[city2].lat;
+    const lon2 = cityData[city2].lon;
+
+    const R = 6371; // Radius of the Earth in km
+    const dLat = toRadians(lat2 - lat1);
+    const dLon = toRadians(lon2 - lon1);
+
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(toRadians(lat1)) *
+        Math.cos(toRadians(lat2)) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+    const distance = R * c;
+    return distance.toFixed(2);
+  };
 
   const completeOrder = (e) => {
     e.preventDefault();
@@ -56,57 +89,23 @@ export const Calc = ({ isModal, setOrders, setPopupAdmin }) => {
       weight: "",
       size: "",
     });
+    setCalc(false); // Reset calc state
+    setDistance(""); // Reset distance display
   };
 
   useEffect(() => {
-    getCities().then((data) => setCities(data));
-    window.ymaps.ready(() => {
-      setMyMap(
-        new window.ymaps.Map(
-          "map",
-          {
-            center: [55.751574, 37.573856],
-            zoom: 9,
-          },
-          {
-            searchControlProvider: "google#search",
-          }
-        )
-      );
-    });
+    const cityNames = Object.keys(cityData);
+    setCities(cityNames);
   }, []);
-
-  const getDistance = (city1, city2) => {
-    const multiRoute = new window.ymaps.multiRouter.MultiRoute(
-      {
-        referencePoints: [city1, city2],
-        params: {
-          results: 1,
-        },
-      },
-      {
-        boundsAutoApply: true,
-      }
-    );
-
-    myMap.geoObjects.add(multiRoute);
-
-    multiRoute.model.events.add("requestsuccess", function () {
-      const dist = multiRoute
-        .getRoutes()
-        .get(0)
-        .properties.get("distance").text;
-      setDistance(dist);
-      setCalc(!calc);
-      multiRoute.destroy();
-    });
-  };
 
   const calculateOrder = (e) => {
     e.preventDefault();
     if (myForm.city1.length > 0 && myForm.city2.length > 0) {
       setLoad(true);
-      window.ymaps.ready(() => getDistance(myForm.city1, myForm.city2));
+      const dist = haversineDistance(myForm.city1, myForm.city2);
+      setDistance(`${dist} km`);
+      setCalc(true);
+      setLoad(false);
     } else {
       alert("Bitte wählen Sie eine Stadt");
     }
@@ -114,7 +113,6 @@ export const Calc = ({ isModal, setOrders, setPopupAdmin }) => {
 
   return (
     <>
-      <div id="map" className="map"></div>
       <form onSubmit={calculateOrder} className="top__order-inner calc-inner">
         <div className="select">
           <select
@@ -127,8 +125,8 @@ export const Calc = ({ isModal, setOrders, setPopupAdmin }) => {
               Von
             </option>
             {cities.map((city, index) => (
-              <option key={index} value={city.name}>
-                {city.name}
+              <option key={index} value={city}>
+                {city}
               </option>
             ))}
           </select>
@@ -144,8 +142,8 @@ export const Calc = ({ isModal, setOrders, setPopupAdmin }) => {
               Nach
             </option>
             {cities.map((city, index) => (
-              <option key={index} value={city.name}>
-                {city.name}
+              <option key={index} value={city}>
+                {city}
               </option>
             ))}
           </select>
@@ -173,8 +171,9 @@ export const Calc = ({ isModal, setOrders, setPopupAdmin }) => {
           className="input-calc"
         />
         <div className="comment">
-          ab <span className="bold">{price} €</span>, voraussichtliche
-          Lieferzeit: <span className="bold">{day}</span> Tag(e)
+          Entfernung: <span className="bold">{distance}</span>, ab{" "}
+          <span className="bold">{price} €</span>, voraussichtliche Lieferzeit:{" "}
+          <span className="bold">{day}</span> Tag(e)
         </div>
         <div className="calc-inner__bottom">
           <button type="submit" className="my-btn count-btn">
@@ -201,6 +200,30 @@ export const Calc = ({ isModal, setOrders, setPopupAdmin }) => {
               )}
         </div>
       </form>
+
+      {/* Map Container */}
+      {calc && (
+        <MapContainer
+          center={[52.3759, 9.732]} // Center map on Hannover
+          zoom={6}
+          style={{ height: "400px", width: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          />
+          {myForm.city1 && (
+            <Marker position={cityData[myForm.city1]}>
+              <Popup>{myForm.city1}</Popup>
+            </Marker>
+          )}
+          {myForm.city2 && (
+            <Marker position={cityData[myForm.city2]}>
+              <Popup>{myForm.city2}</Popup>
+            </Marker>
+          )}
+        </MapContainer>
+      )}
     </>
   );
 };

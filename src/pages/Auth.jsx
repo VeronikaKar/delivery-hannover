@@ -1,21 +1,18 @@
 import { useContext, useState } from "react";
-import { Container, form } from "react-bootstrap";
-import Card from "react-bootstrap/Card";
-import { Button } from "react-bootstrap";
+import { Container } from "react-bootstrap"; // Removed 'form' as it's not a valid import
 import Row from "react-bootstrap/Row";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { observer } from "mobx-react-lite";
+import { Context } from "../index";
+import { login, registration } from "../http/userAPI";
+import Loader from "../components/Loader/Loader";
 
 import {
   LOGIN_ROUTE,
   AUTH_ROUTE,
-  MAIN_ROUTE,
   CABINET_ROUTE,
   ADMIN_ROUTE,
 } from "../utils/consts";
-import { login, registration } from "../http/userAPI";
-import { observer } from "mobx-react-lite";
-import { Context } from "../index";
-import Loader from "../components/Loader/Loader";
 
 const Auth = observer(() => {
   const { user } = useContext(Context);
@@ -32,7 +29,6 @@ const Auth = observer(() => {
     if (form.checkValidity() === false) {
       event.stopPropagation();
     }
-
     setValidated(true);
   };
 
@@ -49,7 +45,7 @@ const Auth = observer(() => {
       localStorage.setItem("user", JSON.stringify(data));
       user.setUser(user);
       user.setIsAuth(true);
-      if (data.token.role == "ADMIN") {
+      if (data.token.role === "ADMIN") {
         history(ADMIN_ROUTE, { replace: true });
       } else {
         history(CABINET_ROUTE, { replace: true });
@@ -65,7 +61,7 @@ const Auth = observer(() => {
         <div className="auth-inner">
           <div className="login-inner">
             <h2 className="m-auto">
-              {isLogin ? "Авторизация" : "Регистрация"}
+              {isLogin ? "Anmeldung" : "Registrierung"}
             </h2>
             <form onSubmit={click} className="d-flex flex-column gap">
               {isLogin ? (
@@ -105,7 +101,6 @@ const Auth = observer(() => {
                     <NavLink to={LOGIN_ROUTE}>Anmelden!</NavLink>
                   </div>
                 )}
-
                 <button type="submit" className="my-btn auth-btn ">
                   {isLogin ? "Anmelden" : "Registrieren"}
                 </button>
