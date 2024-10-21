@@ -4,8 +4,9 @@ import { Context } from "../../main";
 import { useNavigate } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import L from "leaflet";
-
+import { createOrder } from "../../http/orderAPI";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 export const Calc = ({ isModal, setOrders, setPopupAdmin }) => {
   const { user } = useContext(Context);
   const history = useNavigate();
