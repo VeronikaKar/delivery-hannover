@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
-
+import { check } from "../http/userAPI.js";
 import { observer } from "mobx-react-lite";
-import { Context } from "./index";
+import { Context } from "../main.js";
 import "./style/main.css";
 import "./style/reset.css";
 import Header from "./Header/Header";

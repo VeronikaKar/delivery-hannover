@@ -1,6 +1,6 @@
 import { useEffect, useRef, useContext, useState } from "react";
 import { useLocation } from "react-router-dom";
-import logo from "../images/logo.jpeg";
+import logo from "../../images/logo.jpeg";
 import {
   MAIN_ROUTE,
   LOGIN_ROUTE,
@@ -9,7 +9,7 @@ import {
 } from "../../utils/const";
 import { Link } from "react-router-dom";
 import { observer } from "mobx-react-lite";
-import { Context } from "../index";
+import { Context } from "../../main.js";
 
 export const Header = observer(() => {
   const { user } = useContext(Context);
@@ -34,7 +34,7 @@ export const Header = observer(() => {
       console.log(myUser);
       if (!!myUser) {
         myUser = JSON.parse(myUser);
-        if (myUser?.token?.role == "ADMIN") {
+        if (myUser?.token?.role === "ADMIN") {
           setPath(ADMIN_ROUTE);
         } else {
           setPath(CABINET_ROUTE);
@@ -58,18 +58,18 @@ export const Header = observer(() => {
       <div className={wrp ? "wrp active" : "wrp"}>
         <div className="container wrp-container">
           <div className="wrp__inner">
-            {location.pathname == MAIN_ROUTE ? (
+            {location.pathname === MAIN_ROUTE ? (
               <a href="#top" className="header__logo--link">
-                <img src={logo} className="header__logo" />
+                <img src={logo} className="header__logo" alt="Logo" />
               </a>
             ) : (
               <Link to={MAIN_ROUTE} className="header__logo--link">
-                <img src={logo} className="header__logo" />
+                <img src={logo} className="header__logo" alt="Logo" />
               </Link>
             )}
 
             <ul className="wrp__navbar">
-              {location.pathname == MAIN_ROUTE && (
+              {location.pathname === MAIN_ROUTE && (
                 <>
                   {" "}
                   <li
@@ -113,19 +113,19 @@ export const Header = observer(() => {
         <div className="container">
           <div className={wrp ? "header__inner active" : "header__inner"}>
             <div className="header__left">
-              {location.pathname == MAIN_ROUTE ? (
+              {location.pathname === MAIN_ROUTE ? (
                 <a href="#top" className="header__logo--link">
-                  <img src={logo} className="header__logo" />
+                  <img src={logo} className="header__logo" alt="Logo" />
                 </a>
               ) : (
                 <Link to={MAIN_ROUTE} className="header__logo--link">
-                  <img src={logo} className="header__logo" />
+                  <img src={logo} className="header__logo" alt="Logo" />
                 </Link>
               )}
 
               <div className="header__phone header-big">+49 151 5541 9632</div>
 
-              {location.pathname == MAIN_ROUTE && (
+              {location.pathname === MAIN_ROUTE && (
                 <>
                   {" "}
                   <a href="#about" className="header__link m768-960 header-big">

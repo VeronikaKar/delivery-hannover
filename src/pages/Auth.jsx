@@ -1,18 +1,17 @@
 import { useContext, useState } from "react";
-import { Container } from "react-bootstrap"; // Removed 'form' as it's not a valid import
+import { Container } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { observer } from "mobx-react-lite";
-import { Context } from "../index";
+import { Context } from "../main.js";
 import { login, registration } from "../http/userAPI";
-import Loader from "../components/Loader/Loader";
 
 import {
   LOGIN_ROUTE,
   AUTH_ROUTE,
   CABINET_ROUTE,
   ADMIN_ROUTE,
-} from "../utils/consts";
+} from "../utils/const.js";
 
 const Auth = observer(() => {
   const { user } = useContext(Context);

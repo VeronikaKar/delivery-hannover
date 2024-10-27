@@ -1,10 +1,9 @@
 import { useContext, useEffect } from "react";
 import { observer } from "mobx-react-lite";
-import { Context } from "../index";
+import { Context } from "../../main.js";
 
 export const PopupAdmin = observer(({ isActive, setIsActive, children }) => {
   const { user } = useContext(Context);
-
 
   useEffect(() => {
     console.log(isActive);
@@ -12,7 +11,6 @@ export const PopupAdmin = observer(({ isActive, setIsActive, children }) => {
 
   const handleEscape = (e) => {
     if (e.key === "Escape") {
-   
       setIsActive(false);
     }
   };
@@ -22,7 +20,7 @@ export const PopupAdmin = observer(({ isActive, setIsActive, children }) => {
     return () => {
       window.removeEventListener("keydown", handleEscape, true);
     };
-  }, []); 
+  }, []);
 
   return (
     <div className={`popup-admin ${isActive ? "active" : ""}`}>

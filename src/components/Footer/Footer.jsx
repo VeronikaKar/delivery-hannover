@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../images/logo.jpeg";
-import what from "../images/what.svg";
-import mail from "../images/mail.svg";
+import logo from "../../images/logo.jpg";
+import what from "../../images/svg/what.svg";
+import mail from "../../images/svg/mail.svg";
 import { observer } from "mobx-react-lite";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import { AUTH_ROUTE, MAIN_ROUTE } from "../../utils/const";
+import { AUTH_ROUTE, MAIN_ROUTE } from "../../utils/const.js";
 
 
 delete L.Icon.Default.prototype._getIconUrl;

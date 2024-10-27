@@ -52,9 +52,8 @@ html,
   -moz-box-shadow: 0px 0px 20px 15px rgba(255, 255, 255, 1);
   box-shadow: 0px 0px 20px 15px rgba(255, 255, 255, 1);
   z-index: 100;
-
-  position: sticky;
-
+position: -webkit-sticky; 
+  position: sticky; 
   top: 0;
   background-color: white;
 }
@@ -116,7 +115,7 @@ html,
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../images/person.svg");
+  background-image: url("../images/svg/person.svg");
 }
 .header__person--logo:hover {
   scale: 1.05;
@@ -129,7 +128,7 @@ html,
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../images/top_sky.png");
+  background-image: url("../images/image/top_sky.png");
   position: absolute;
   z-index: 0;
 }
@@ -140,7 +139,7 @@ html,
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../images/bottom-sky.png");
+  background-image: url("../images/image/bottom-sky.png");
   position: absolute;
   z-index: 0;
 }
@@ -150,10 +149,9 @@ html,
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../images/back.jpeg");
+  background-image: url("../images/image/back.jpeg");
 }
-.container {
-}
+
 .top__inner {
   padding-top: 40px;
   margin-bottom: 70px;
@@ -161,8 +159,7 @@ html,
   justify-content: space-between;
   gap: 60px;
 }
-.top__order {
-}
+
 .title {
   min-height: 36px;
   font-size: 35px;
@@ -286,7 +283,7 @@ input {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../images/s-ye.svg");
+  background-image: url("../images/svg/s-ye.svg");
 }
 .search-img {
   width: 38px;
@@ -294,7 +291,7 @@ input {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../images/s-ye.svg");
+  background-image: url("../images/svg/s-ye.svg");
 }
 .search-btn {
   display: flex;
@@ -302,7 +299,7 @@ input {
   align-items: center;
 }
 .search-btn:hover > * {
-  background-image: url("../images/s-w.svg");
+  background-image: url("../images/svg/s-w.svg");
 }
 .search:hover,
 .my-btn:hover {
@@ -391,7 +388,7 @@ select::-ms-expand {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../images/arrow-active.svg");
+  background-image: url("../images/svg/arrow-active.svg");
 
   content: "";
   position: absolute;
@@ -414,7 +411,7 @@ select::-ms-expand {
   background-color: #266b32;
 }
 .select:hover::before {
-  background-image: url("../images/arrow.svg");
+  background-image: url("../images/svg/arrow.svg");
 }
 .calc-wrapper {
   gap: 20px;
@@ -626,16 +623,16 @@ select::-ms-expand {
 .feedback__card-star {
   cursor: pointer;
   margin: 10px 0;
-  background-image: url("../images/gray.svg");
+  background-image: url("../images/svg/gray.svg");
 }
 .feedback__card-star.active {
-  background-image: url("../images/yellow.svg");
+  background-image: url("../images/svg/yellow.svg");
 }
 #s1:hover {
-  background-image: url("../images/yellow.svg");
+  background-image: url("../images/svg/yellow.svg");
 }
 #s2:hover {
-  background-image: url("../images/yellow.svg");
+  background-image: url("../images/svg/yellow.svg");
 }
 
 .small-stars > * {
@@ -673,7 +670,7 @@ select::-ms-expand {
   background-position: center;
   width: 32px;
   height: 32px;
-  background-image: url("../images/back.svg");
+  background-image: url("../images/svg/back.svg");
 }
 .back:hover {
   background-color: #266b32;
@@ -705,7 +702,7 @@ select::-ms-expand {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../images/like.svg");
+  background-image: url("../images/svg/like.svg");
 }
 .feed-btn {
   cursor: pointer;
@@ -720,7 +717,7 @@ select::-ms-expand {
 }
 .feed-btn:hover > .like,
 .feed-btn:active > .like {
-  background-image: url("../images/like-active.svg");
+  background-image: url("../images/svg/like-active.svg");
 }
 .feedback__title {
   margin: 0;
@@ -787,7 +784,7 @@ select::-ms-expand {
   background-position: center;
   background-repeat: no-repeat;
   background-color: var(--green);
-  background-image: url("../images/check.svg");
+  background-image: url("../images/svg/check.svg");
 }
 .bold {
   font-weight: 600;
@@ -805,7 +802,7 @@ select::-ms-expand {
       rgba(255, 255, 255, 0) 100%,
       rgba(255, 255, 255, 0) 100%
     ),
-    url("../images/back2.jpg");
+    url("../images/image/back2.jpg");
 }
 
 .about__inner {
@@ -890,7 +887,7 @@ select::-ms-expand {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../images/burger.svg");
+  background-image: url("../images/svg/burger.svg");
 }
 .header__btn {
   color: var(--green);
@@ -908,7 +905,7 @@ select::-ms-expand {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../images/close.svg");
+  background-image: url("../images/svg/close.svg");
   padding-bottom: 25px !important;
 }
 
@@ -1077,7 +1074,7 @@ th {
   background-position: center;
   background-repeat: no-repeat;
   transform: rotate(-90deg);
-  background-image: url("../images/black-arrow.svg");
+  background-image: url("../images/svg/black-arrow.svg");
 }
 .del {
   width: 48px;
@@ -1091,12 +1088,12 @@ th {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../images/check.svg");
+  background-image: url("../images/svg/check.svg");
 }
 .del-td:hover,
 .del-td:active {
   background-color: #266b32;
-  background-image: url("../images/check-active.svg");
+  background-image: url("../images/svg/check-active.svg");
 }
 .popup-reg,
 .popup-admin {
@@ -1175,7 +1172,7 @@ th {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("../images/close-card.svg");
+  background-image: url("../images/svg/close-card.svg");
 }
 
 .close-card:hover {
@@ -1220,7 +1217,7 @@ th {
         rgba(255, 255, 255, 0.6) 66%,
         rgba(255, 255, 255, 0.5) 98%
       ),
-      url("../images/back.jpeg");
+      url("../images/image/back.jpeg");
   }
 }
 .btn-footer {

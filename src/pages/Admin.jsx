@@ -1,14 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
-import logout from "../images/logout.svg";
+import logout from "../images/svg/logout.svg";
 import Table from "react-bootstrap/Table";
-import Calc from "../components/Calc";
+import Calc from "../components/Calc/Calc";
 import { useNavigate, NavLink } from "react-router-dom";
 import { Context } from "../main";
-import { MAIN_ROUTE } from "../utils/const";
+import { MAIN_ROUTE } from "../utils/const.js";
 import { PopupAdmin } from "../components/PopupAdmin";
-import { getAllOrders, changeOrder, deleteOrder } from "../http/orderAPI";
-import del from "../images/del.svg";
+import { getAllOrders, changeOrder, deleteOrder } from "../http/orderAPI.js";
+import del from "../images/svg/del.svg";
 export const Cabinet = observer(() => {
   const { user } = useContext(Context);
   const [orders, setOrders] = useState([]);
