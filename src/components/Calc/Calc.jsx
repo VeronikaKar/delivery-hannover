@@ -1,15 +1,14 @@
 import { useContext, useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
-import { Context } from "../../main";
+import { Context } from "../../main.js";
 import { useNavigate } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { createOrder } from "../../http/orderAPI";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css";
+
 export const Calc = ({ isModal, setOrders, setPopupAdmin }) => {
   const { user } = useContext(Context);
-  const history = useNavigate();
+  const navigate = useNavigate();
   const [cities, setCities] = useState([]);
   const [distance, setDistance] = useState("");
   const [calc, setCalc] = useState(false);
@@ -51,8 +50,7 @@ export const Calc = ({ isModal, setOrders, setPopupAdmin }) => {
         Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-    const distance = R * c;
-    return distance.toFixed(2);
+    return (R * c).toFixed(2); // Return distance in km
   };
 
   const completeOrder = (e) => {
@@ -101,7 +99,7 @@ export const Calc = ({ isModal, setOrders, setPopupAdmin }) => {
 
   const calculateOrder = (e) => {
     e.preventDefault();
-    if (myForm.city1.length > 0 && myForm.city2.length > 0) {
+    if (myForm.city1 && myForm.city2) {
       setLoad(true);
       const dist = haversineDistance(myForm.city1, myForm.city2);
       setDistance(`${dist} km`);
@@ -193,7 +191,7 @@ export const Calc = ({ isModal, setOrders, setPopupAdmin }) => {
             : calc && (
                 <button
                   type="button"
-                  onClick={() => history(user.path)}
+                  onClick={() => navigate(user.path)}
                   className="my-btn"
                 >
                   Zur Bestellung
