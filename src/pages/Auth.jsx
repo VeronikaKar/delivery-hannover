@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { observer } from "mobx-react-lite";
-import { Context } from "../main.js";
+import { Context } from "../index.js";
 import { login, registration } from "../http/userAPI";
 
 import {

@@ -1,5 +1,5 @@
 import { $authHost, $host } from "./index";
-import jwtDecode from "jwt-decode";
+import { jwtDecode } from "jwt-decode"; // Updated to named import
 
 export const registration = async (email, password, name, surname, role) => {
   try {
@@ -29,6 +29,7 @@ export const login = async (email, password) => {
     throw e;
   }
 };
+
 export const check = async () => {
   try {
     const { data } = await $authHost.get("api/user/auth");
@@ -40,6 +41,7 @@ export const check = async () => {
     throw e;
   }
 };
+
 export const getUser = async (params) => {
   try {
     const { data } = await $host.get(`api/user/${params || ""}`);

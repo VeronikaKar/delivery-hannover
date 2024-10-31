@@ -1,14 +1,17 @@
+import { lazy } from "react";
 import {
+  CABINET_ROUTE,
+  ADMIN_ROUTE,
   MAIN_ROUTE,
   AUTH_ROUTE,
   LOGIN_ROUTE,
-  CABINET_ROUTE,
-  ADMIN_ROUTE,
-} from "./routes.js";
-import MAIN from "./pages/Main.jsx";
-import Auth from "./pages/Auth.jsx";
-import Dashboard from "./pages/Dashboard.jsx";
-import Admin from "./pages/Admin.jsx";
+} from "./utils/const.js";
+
+const Main = lazy(() => import("./pages/Main.jsx"));
+const Auth = lazy(() => import("./pages/Auth.jsx"));
+const Dashboard = lazy(() => import("./pages/Dashboard.jsx"));
+const Admin = lazy(() => import("./pages/Admin.jsx"));
+
 export const authRoutes = [
   {
     path: CABINET_ROUTE,
@@ -23,7 +26,7 @@ export const authRoutes = [
 export const publicRoutes = [
   {
     path: MAIN_ROUTE,
-    Component: MAIN,
+    Component: Main,
   },
   {
     path: AUTH_ROUTE,

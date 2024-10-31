@@ -1,5 +1,5 @@
 import { $authHost, $host } from "./index";
-import jwt_decode from "jwt-decode";
+import { jwtDecode } from "jwt-decode"; // Corrected import
 
 export const deleteOrder = async (id) => {
   const { data } = await $host.delete("api/order/" + id);
@@ -20,18 +20,22 @@ export const getFeedbacks = async () => {
   const { data } = await $host.get("api/order/feedback");
   return data;
 };
+
 export const changeOrder = async (order) => {
   const { data } = await $host.put("api/order/", order);
   return data;
 };
+
 export const getAllOrders = async (active) => {
   const { data } = await $host.get("api/order/" + active);
   return data;
 };
+
 export const getOrders = async (id, active) => {
   const { data } = await $host.get("api/order/" + id + "/" + active);
   return data;
 };
+
 export const allOrders = async (active) => {
   const { data } = await $host.get("api/orders/" + active);
   return data;

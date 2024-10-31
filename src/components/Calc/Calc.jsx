@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
-import { Context } from "../../main.js";
+import { Context } from "../../index.js";
 import { useNavigate } from "react-router-dom";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";

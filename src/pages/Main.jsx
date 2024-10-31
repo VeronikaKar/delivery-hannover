@@ -1,14 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { observer } from "mobx-react-lite";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { PopupAdmin } from "../components/PopupAdmin";
-import Footer from "../components/Footer";
-import Calc from "../components/Calc";
+import { PopupAdmin } from "../components/PopupAdmin/PopupAdmin";
+import Footer from "../components/Footer/Footer";
+import Calc from "../components/Calc/Calc";
 import Card from "../components/Card";
-import avatar from "../images/avatar.svg";
+import avatar from "../images/svg/avatar.svg";
 import { getFeedbacks } from "../http/orderAPI";
-import { Context } from "../index";
+import { Context } from "../index.js";
 
 export const Main = observer(() => {
   const { user } = useContext(Context);

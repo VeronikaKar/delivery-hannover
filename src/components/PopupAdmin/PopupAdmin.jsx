@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import { observer } from "mobx-react-lite";
-import { Context } from "../../main.js";
+import { Context } from "../../index.js";
 
 export const PopupAdmin = observer(({ isActive, setIsActive, children }) => {
   const { user } = useContext(Context);

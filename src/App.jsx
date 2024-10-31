@@ -3,7 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import { check } from "./http/userAPI";
 import { observer } from "mobx-react-lite";
-import { Context } from "./main";
+import { Context } from ".";
 import "./style/main.css";
 import "./style/reset.css";
 import AppRouter from "./components/AppRouter";

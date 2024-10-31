@@ -4,7 +4,7 @@ import logout from "../images/svg/logout.svg";
 import Table from "react-bootstrap/Table";
 import Calc from "../components/Calc/Calc";
 import { useNavigate, NavLink } from "react-router-dom";
-import { Context } from "../main.js";
+import { Context } from "../index.js";
 import { MAIN_ROUTE } from "../utils/const.js";
 import { PopupAdmin } from "../components/PopupAdmin/PopupAdmin";
 import { getOrders, createFeedback, changeOrder } from "../http/orderAPI.js";
