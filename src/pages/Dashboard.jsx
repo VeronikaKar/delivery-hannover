@@ -139,8 +139,8 @@ export const Dashboard = observer(() => {
                     <li>
                       <label className="guide__filter">
                         <input
-                          checked={allTable == null}
-                          value={allTable == "null"}
+                          checked={allTable === null}
+                          value={allTable === "null"}
                           id="table-1"
                           name="table"
                           onChange={() => handleChangeTable(null)}
@@ -153,8 +153,8 @@ export const Dashboard = observer(() => {
                     <li>
                       <label className="guide__filter">
                         <input
-                          checked={allTable == true}
-                          value={allTable == "true"}
+                          checked={allTable === true}
+                          value={allTable === "true"}
                           id="table-2"
                           name="table"
                           onChange={() => handleChangeTable(true)}
@@ -167,8 +167,8 @@ export const Dashboard = observer(() => {
                     <li>
                       <label className="guide__filter">
                         <input
-                          checked={allTable == false}
-                          value={allTable == "false"}
+                          checked={allTable === false}
+                          value={allTable === "false"}
                           id="table-3"
                           name="table"
                           onChange={() => handleChangeTable(false)}
@@ -210,8 +210,8 @@ export const Dashboard = observer(() => {
                               <td>{i.active ? "Ja" : "Nein"}</td>
                               <td className="feed-td">
                                 {i.status}{" "}
-                                {i.status == "Geliefert" &&
-                                  i.feedback == true && (
+                                {i.status === "Geliefert" &&
+                                  i.feedback === true && (
                                     <button
                                       onClick={() => {
                                         setFeed(i);

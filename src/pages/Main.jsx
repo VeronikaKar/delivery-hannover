@@ -11,7 +11,6 @@ import { getFeedbacks } from "../http/orderAPI";
 import { Context } from "../index.js";
 
 export const Main = observer(() => {
-  const { user } = useContext(Context);
   const [feedbacks, setFeedbakcs] = useState([]);
   const [currentFeedback, setCurrentFeedback] = useState(null);
   const [popupFeedback, setPopupFeedback] = useState(false);
@@ -42,7 +41,11 @@ export const Main = observer(() => {
         {!!currentFeedback && (
           <div className="feedback__card modal-card">
             <div className="feedback__card-top">
-              <img src={avatar} className="feedback__card-avatar" />
+              <img
+                src={avatar}
+                className="feedback__card-avatar"
+                alt="Avatar"
+              />
               <div className="feedback__card-info">
                 <div className="feedback__card-name">
                   {currentFeedback.email}
