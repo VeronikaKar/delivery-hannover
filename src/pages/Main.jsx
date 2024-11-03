@@ -129,7 +129,7 @@ export const Main = observer(() => {
                     <SwiperSlide key={index}>
                       <div className="feedback__card">
                         <div className="feedback__card-top">
-                          <img src={avatar} className="feedback__card-avatar" />
+                          <img src={avatar} className="feedback__card-avatar" alt="Avatar" />
                           <div className="feedback__card-info">
                             <div className="feedback__card-name">{i.email}</div>
                           </div>

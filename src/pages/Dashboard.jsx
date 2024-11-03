@@ -238,7 +238,7 @@ export const Dashboard = observer(() => {
                 </button>
 
                 <button onClick={setLogout} className="my-btn">
-                  Abmelden <img src={logout} alt="" />
+                  Abmelden <img src={logout} alt="Abmelden" />
                 </button>
               </div>
             </div>

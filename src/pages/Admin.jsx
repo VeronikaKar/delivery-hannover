@@ -115,7 +115,7 @@ export const Cabinet = observer(() => {
                           <th>Erstellungsdatum</th>
                           <th>Ankunftsdatum</th>
                           <th className="del">
-                            <img src={del} alt="" />
+                            <img src={del} alt="Del" />
                           </th>
                         </tr>
                       </thead>
@@ -172,7 +172,7 @@ export const Cabinet = observer(() => {
               </div>
               <div className="cabinet__bottom">
                 <button onClick={setLogout} className="my-btn admin-btn">
-                  Abmelden <img src={logout} alt="" />
+                  Abmelden <img src={logout} alt="Logout" />
                 </button>
               </div>
             </div>
